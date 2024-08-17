@@ -1,11 +1,10 @@
 import { QueryClient, QueryClientProvider } from "react-query";
 
 // Layouts
-import { MainLayout } from "@layouts/index";
+import { HomeLayout, MainLayout } from "@layouts/index";
 // Pages
 // Router Functions
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Hero from "@components/Met2ashara/Home/Hero";
 
 const router = createBrowserRouter([
   {
@@ -15,9 +14,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element:<>
-        <Hero />
-        </>,
+        element:<HomeLayout />,
       },
     ],
   },
