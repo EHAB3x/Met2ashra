@@ -1,0 +1,11 @@
+.mainLayout{
+    display: flex;
+}
+.pagesContent{
+    width: 100%;
+}
+@media screen and (max-width:768px){
+    .pagesContent{
+        margin-right: 73px;
+    }
+}
