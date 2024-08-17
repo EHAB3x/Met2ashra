@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from "react-query";
 
 // Layouts
-import { MainLayout } from "@layouts/index";
+import { HomeLayout, MainLayout } from "@layouts/index";
 // Pages
 // Router Functions
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        // element:<></>,
+        element:<HomeLayout />,
       },
     ],
   },
