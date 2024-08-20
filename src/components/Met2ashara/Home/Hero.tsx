@@ -11,9 +11,9 @@ import Search from "@assets/svg/search.svg?react";
 import HeroSection from "@assets/images/hero-section.png"
 const Hero = () => {
   return (
-    <div className="bg-[url('src/assets/images/hero.png')] bg-no-repeat bg-cover">
-      <div className="container flex items-center justify-center pt-[84px] sm:gap-16 gap-8 sm:flex-row flex-col-reverse">
-        <div className="flex-1">
+    <div className="bg-[url('src/assets/images/hero.png')] bg-no-repeat bg-cover h-[1000px]">
+      <div className="container flex items-center justify-center sm:gap-16 gap-8 sm:flex-row flex-col-reverse h-[100%]">
+        <div className="sm:flex-1 flex-none">
           <div className="flex flex-col gap-4 mb-6">
             <h2 className="font-semibold sm:text-[40px] text-[28px] text-black">
               Start Your Perfect Career Journey Today ..
@@ -24,7 +24,7 @@ const Hero = () => {
             </p>
           </div>
 
-          <div className="bg-white p-[9px] sm:!pl-[42px] !pl-[12px] rounded-[75px] flex items-center gap-4 mb-8">
+          <div className="bg-white p-[9px] sm:!pl-[42px] !pl-[12px] rounded-[75px] flex items-center gap-4 sm:mb-16 mb-8">
             <input
               type="text"
               placeholder="Search ..."
@@ -54,7 +54,7 @@ const Hero = () => {
 
           <div className="flex flex-col gap-6">
             <h2 className="font-medium text-black text-[20px]">Popular Search</h2>
-            <div className="flex w-[200px] flex-wrap gap-[0.75rem] cursor-pointer">
+            <div className="flex sm:w-[200px] w-[100%] flex-wrap gap-[0.75rem] cursor-pointer">
               <span className="bg-[#0B7BFF1A] text-primary p-4 rounded-[30px] text-[1rem] font-normal hover:bg-secondary transition-all">
                 OOP Concepts
               </span>
@@ -70,7 +70,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="flex-1">
+        <div className="sm:flex-1 flex-none sm:mt-0">
             <img src={HeroSection} alt="HeroSection" />
         </div>
       </div>
