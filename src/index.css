@@ -72,3 +72,7 @@
     background: linear-gradient(90deg, #113573 0%, #4B97F4 100%);
   }
 }
+
+body{
+  font-family: Roboto, sans-serif;
+}

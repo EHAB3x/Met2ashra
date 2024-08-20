@@ -1,4 +1,4 @@
-import Nav from "@/src/pages/Nav";
+import Nav from "@/src/components/common/Nav";
 // import styles from "./styles.module.css";
 import { Outlet } from "react-router-dom";
 

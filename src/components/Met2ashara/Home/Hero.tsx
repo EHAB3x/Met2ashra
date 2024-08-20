@@ -15,20 +15,20 @@ const Hero = () => {
       <div className="container flex items-center justify-center sm:gap-16 gap-8 sm:flex-row flex-col-reverse h-[100%]">
         <div className="sm:flex-1 flex-none">
           <div className="flex flex-col gap-4 mb-6">
-            <h2 className="font-semibold sm:text-[40px] text-[28px] text-black">
+            <h2 className="font-semibold sm:text-[32px] text-[28px] text-black">
               Start Your Perfect Career Journey Today ..
             </h2>
-            <p className="font-semibold sm:text-[22px] text-[18px] text-[#00000099]">
+            <p className="font-semibold sm:text-[20px] text-[16px] text-[#00000099]">
               We increase your passion for programming and prepare you for the
               digital job market
             </p>
           </div>
 
-          <div className="bg-white p-[9px] sm:!pl-[42px] !pl-[12px] rounded-[75px] flex items-center gap-4 sm:mb-16 mb-8">
+          <div className="bg-white p-[9px] sm:!pl-[42px] !pl-[12px] rounded-[75px] flex items-center gap-4 sm:mb-12 mb-4">
             <input
               type="text"
               placeholder="Search ..."
-              className="flex-1 border-r-[1px] border-solid border-[#00000066]"
+              className="flex-1 outline-0 border-r-[1px] border-solid border-[#00000066]"
             />
             <div className="flex-1">
               <Select>
@@ -37,18 +37,18 @@ const Hero = () => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectLabel>Fruits</SelectLabel>
-                    <SelectItem value="apple">Apple</SelectItem>
-                    <SelectItem value="banana">Banana</SelectItem>
-                    <SelectItem value="blueberry">Blueberry</SelectItem>
-                    <SelectItem value="grapes">Grapes</SelectItem>
-                    <SelectItem value="pineapple">Pineapple</SelectItem>
+                    <SelectLabel>Concepts</SelectLabel>
+                    <SelectItem value="apple">Programming</SelectItem>
+                    <SelectItem value="banana">Software</SelectItem>
+                    <SelectItem value="blueberry">OOP</SelectItem>
+                    <SelectItem value="grapes">Basics</SelectItem>
+                    <SelectItem value="pineapple">Roadmap</SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
             </div>
-            <div className="sm:w-[75px] sm:h-[75px] w-[50px] h-[50px] bg-primary rounded-[50%] flex justify-center items-center cursor-pointer">
-              <Search />
+            <div className="sm:w-[60px] sm:h-[60px] w-[40px] h-[40px] bg-primary rounded-[50%] flex justify-center items-center cursor-pointer">
+              <Search  className="sm:w-[32px] sm:h-[32px] w-[24px] h-[24px]"/>
             </div>
           </div>
 
