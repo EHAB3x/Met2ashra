@@ -1,6 +1,4 @@
-import Hero from "@components/Met2ashara/Home/Hero";
-import CarouselCard from "@components/Met2ashara/Home/CarouselCard";
-import Basics from "@components/Met2ashara/Home/Basics";
+import {Hero, CarouselCard, Basics, Download} from "@components/Met2ashara/Home/index";
 
 const HomeLayout = () => {
   return (
@@ -8,6 +6,7 @@ const HomeLayout = () => {
       <Hero />
       <CarouselCard />
       <Basics />
+      <Download />
     </>
   );
 };
