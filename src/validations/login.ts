@@ -1,10 +1,10 @@
 import { z } from "zod";
 const LoginSchema = z.object({
-  email: z
-    .string({ message: "من فضلك ادخل ايميل " })
-    .min(2, "من فضلك ادحل ايميل"),
+  phone: z
+    .string({ message: "please enter phone number" })
+    .min(2, "please enter phone number be 11 charcter"),
   password: z
-    .string({ message: "من فضلك ادخل كلمة مرور " })
-    .min(2, "من فضلك ادحل كلمة مرور"),
+    .string({ message: "please enter your passowrd" })
+    .min(2, "please enter your passowrd"),
 });
 export { LoginSchema };
