@@ -14,6 +14,10 @@ import {
   FormLabel,
   FormMessage,
 } from "@components/ui/form";
+import { FaFacebookF } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import { PiAppleLogoFill } from "react-icons/pi";
+
 import useLogin from "@hooks/useLogin";
 import SuccessToast from "@components/toasts/SuccessToast";
 import ErrorToast from "@components/toasts/ErrorToast";
@@ -130,14 +134,14 @@ const Login = () => {
           </div>
 
           <div className="flex justify-center space-x-4">
-            <button className="bg-black text-white p-2 rounded-full flex items-center">
-              <i className="fab fa-apple"></i>
+            <button className="bg-slate-400 text-black p-2 rounded-full flex items-center">
+              <FaFacebookF />
             </button>
-            <button className="bg-red-500 text-white p-2 rounded-full flex items-center">
-              <i className="fab fa-google"></i>
+            <button className="bg-slate-400 text-black  p-2 rounded-full flex items-center">
+              <FcGoogle />
             </button>
-            <button className="bg-blue-700 text-white p-2 rounded-full flex items-center">
-              <i className="fab fa-facebook"></i>
+            <button className="bg-slate-400 text-black  p-2 rounded-full flex items-center">
+              <PiAppleLogoFill />
             </button>
           </div>
 
