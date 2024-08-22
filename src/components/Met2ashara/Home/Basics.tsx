@@ -17,7 +17,7 @@ const Basics = () => {
 
                 <Button 
                     className="w-fit !px-16 !py-6 !rounded-[100px] text-transparent bg-clip-text bg-gradient-to-r from-[#113573] to-[#4B97F4] !font-semibold text-[20px]" 
-                    variant="outline"
+                    variant="gradientOutline"
                 >
                     Let's Start
                 </Button>
