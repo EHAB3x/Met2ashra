@@ -32,8 +32,8 @@ export function CarouselCard() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious className="md:hidden block" />
+      <CarouselNext className="md:hidden block" />
     </Carousel>
   );
 }
