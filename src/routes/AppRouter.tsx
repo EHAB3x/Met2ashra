@@ -8,6 +8,7 @@ import Signup from "@pages/Signup";
 import CompanyPage from "@pages/CompanyPage";
 // Router Functions
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AuthLayout from "../layouts/AuthLayout";
 
 const router = createBrowserRouter([
   {
@@ -20,19 +21,26 @@ const router = createBrowserRouter([
         element: <HomeLayout />,
       },
       {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/signup",
-        element: <Signup />,
-      },
-      {
         path:"/companies/:companyId",
         element: <CompanyPage />
       }
     ],
   },
+  {
+    path:"/",
+    element: <AuthLayout />,
+    errorElement: <p>Error</p>,
+    children:[
+      {
+        path:"login",
+        element: <Login />,
+      },
+      {
+        path: "signup",
+        element: <Signup />,
+      },
+    ]
+  }
 ]);
 
 const queryClient = new QueryClient();
