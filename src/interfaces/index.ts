@@ -29,3 +29,24 @@ export interface IroadmapContent {
     link: string;
   }[];
 }
+
+
+export interface userData {
+  access_token: string;
+  token_type: string;
+  user: {
+    email: string;
+    id: string;
+    image_link: string;
+    name: string;
+    phone: string;
+  };
+}
+
+export interface AuthContextType {
+  isLoggedIn: boolean;
+  user: userData | null;
+  userToken: string | null;
+  login: (data: userData) => void;
+  logout: () => void;
+}

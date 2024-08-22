@@ -31,6 +31,7 @@
       "@services/*": ["src/services/*"],
       "@validations/*": ["src/validations/*"],
       "@context/*" :["src/context/*"],
+      "@interfaces/*" :["src/interfaces/*"],
     },
     /* Linting */
     "strict": true,
