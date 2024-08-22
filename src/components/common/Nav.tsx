@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@components/ui/sheet";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
 const Nav = () => {

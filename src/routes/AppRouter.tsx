@@ -5,6 +5,7 @@ import { HomeLayout, MainLayout } from "@layouts/index";
 // Pages
 import Login from "@pages/Login";
 import Signup from "@pages/Signup";
+import CompanyPage from "@pages/CompanyPage";
 // Router Functions
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
         path: "/signup",
         element: <Signup />,
       },
+      {
+        path:"/companies/:companyId",
+        element: <CompanyPage />
+      }
     ],
   },
 ]);
