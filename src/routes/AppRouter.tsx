@@ -6,6 +6,7 @@ import { HomeLayout, MainLayout } from "@layouts/index";
 import Login from "@pages/Login";
 import Signup from "@pages/Signup";
 import Companies from "@pages/Companies";
+import RoadMap from "@pages/RoadMap";
 // Router Functions
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/companies",
         element: <Companies />,
+      },
+      {
+        path: "/roadmap",
+        element: <RoadMap />,
       },
     ],
   },
