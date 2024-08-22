@@ -31,7 +31,7 @@ const Companies = () => {
       </div>
 
       <div className="my-10">
-        <h1 className="text-3xl font-bold text-center mb-6 text-secondary">
+        <h1 className="text-4xl font-bold text-center mb-6 text-blue-400">
           Companies
         </h1>
         <div className="flex flex-wrap justify-center">
