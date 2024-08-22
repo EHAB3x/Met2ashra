@@ -11,6 +11,7 @@ import CompanyPage from "@pages/CompanyPage";
 // Router Functions
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AuthLayout from "../layouts/AuthLayout";
+import Calender from "../pages/Calender";
 
 const router = createBrowserRouter([
   {
@@ -28,21 +29,21 @@ const router = createBrowserRouter([
       },
       {
         path: "/roadmap",
-        element: <RoadMap />,
+        element: <Calender />,
       },
       {
-        path:"/companies/:companyId",
-        element: <CompanyPage />
-      }
+        path: "/companies/:companyId",
+        element: <CompanyPage />,
+      },
     ],
   },
   {
-    path:"/",
+    path: "/",
     element: <AuthLayout />,
     errorElement: <p>Error</p>,
-    children:[
+    children: [
       {
-        path:"login",
+        path: "login",
         element: <Login />,
       },
       {

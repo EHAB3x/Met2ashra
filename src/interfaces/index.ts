@@ -16,3 +16,16 @@ export interface Ijobs {
   logo: string;
   field: string;
 }
+export interface Iroadmap {
+  id: string;
+  name: string;
+}
+export interface IroadmapContent {
+  id: string;
+  name: string;
+  contents: {
+    id: string;
+    description: string;
+    link: string;
+  }[];
+}
