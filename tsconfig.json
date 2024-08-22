@@ -29,7 +29,8 @@
       "@layouts/*": ["src/layouts/*"],
       "@util/*": ["src/utils/*"],
       "@services/*": ["src/services/*"],
-      "@validations/*": ["src/validations/*"]
+      "@validations/*": ["src/validations/*"],
+      "@context/*" :["src/context/*"],
     },
     /* Linting */
     "strict": true,

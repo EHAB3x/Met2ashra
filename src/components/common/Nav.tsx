@@ -10,15 +10,17 @@ import {
   DropdownMenuTrigger,
 } from "@components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@components/ui/sheet";
-import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "@context/AuthContext";
 
 const Nav = () => {
   const navLinkStyle = ({ isActive }: { isActive: boolean }) => {
     return isActive ? "text-white gradients" : "text-black";
   };
 
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const navigate = useNavigate();
+  const auth = useAuth();
+  
 
   return (
     <header className="fixed w-full backdrop-blur-sm top-0 flex items-center justify-between gap-4 border-none bg-transparent py-4 px-4 md:px-6 z-[99999]">
@@ -134,11 +136,8 @@ const Nav = () => {
         </SheetContent>
       </Sheet>
 
-      {isLoggedIn ? (
-        <Button variant="default" onClick={() => setIsLoggedIn(false)}>
-          Log in
-        </Button>
-      ) : (
+      {auth?.isLoggedIn ?
+      (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="secondary" size="icon" className="rounded-full">
@@ -155,6 +154,11 @@ const Nav = () => {
             <DropdownMenuItem>Logout</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+      ) 
+      : (
+        <Button variant="default" onClick={()=> navigate("/login")}>
+          Log in
+        </Button>
       )}
     </header>
   );
