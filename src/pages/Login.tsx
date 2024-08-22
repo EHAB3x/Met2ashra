@@ -23,7 +23,9 @@ import SuccessToast from "@components/toasts/SuccessToast";
 import ErrorToast from "@components/toasts/ErrorToast";
 import { useNavigate } from "react-router-dom";
 import { encrypt } from "../utils/Utilty";
+import { useAuth } from "@context/AuthContext";
 const Login = () => {
+  const { login } = useAuth();
   const navigate = useNavigate();
   const form = useForm<z.infer<typeof LoginSchema>>({
     mode: "onBlur",
@@ -40,6 +42,7 @@ const Login = () => {
           encrypt(data.access_token, import.meta.env.VITE_TOKEN_SECRET)
         );
         if (data.access_token) {
+          login(data);
           SuccessToast("Success login welcome to Met2ashara", navigate, "/");
         } else {
           ErrorToast(data.error.message);

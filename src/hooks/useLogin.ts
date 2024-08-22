@@ -1,12 +1,12 @@
 import { useMutation } from "react-query";
-import { useAuth } from "../context/AuthContext";
+
 interface Iprops {
   phone: string;
   password: string;
 }
 
 const useLogin = () => {
-  const {login} = useAuth();
+  // const {login} = useAuth();
 
   return useMutation({
     mutationFn: (data: Iprops) =>
@@ -19,8 +19,8 @@ const useLogin = () => {
           phone: data.phone,
           password: data.password,
         }),
-      }).then((response) => response.json())
-      .then((userData)=> login(userData))
+      }).then((response) => response.json()),
+    // .then((userData)=> login(userData))
   });
 };
 
