@@ -5,6 +5,8 @@ import { HomeLayout, MainLayout } from "@layouts/index";
 // Pages
 import Login from "@pages/Login";
 import Signup from "@pages/Signup";
+import Companies from "@pages/Companies";
+import RoadMap from "@pages/RoadMap";
 import CompanyPage from "@pages/CompanyPage";
 // Router Functions
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -19,6 +21,14 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <HomeLayout />,
+      },
+      {
+        path: "/companies",
+        element: <Companies />,
+      },
+      {
+        path: "/roadmap",
+        element: <RoadMap />,
       },
       {
         path:"/companies/:companyId",
@@ -39,8 +49,8 @@ const router = createBrowserRouter([
         path: "signup",
         element: <Signup />,
       },
-    ]
-  }
+    ],
+  },
 ]);
 
 const queryClient = new QueryClient();
