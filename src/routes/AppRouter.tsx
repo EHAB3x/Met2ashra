@@ -5,13 +5,14 @@ import { HomeLayout, MainLayout } from "@layouts/index";
 // Pages
 import Login from "@pages/Login";
 import Signup from "@pages/Signup";
+import Companies from "@pages/Companies";
 // Router Functions
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    // element: <MainLayout />,
+    element: <MainLayout />,
     errorElement: <p>Error</p>,
     children: [
       {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Signup />,
+      },
+      {
+        path: "/companies",
+        element: <Companies />,
       },
     ],
   },

@@ -1,10 +1,17 @@
-import {Hero, CarouselCard, Basics, Download} from "@components/Met2ashara/Home/index";
+import {
+  Hero,
+  CarouselCard,
+  Basics,
+  Download,
+  CarouselCompanies,
+} from "@components/Met2ashara/Home/index";
 
 const HomeLayout = () => {
   return (
     <>
       <Hero />
       <CarouselCard />
+      <CarouselCompanies />
       <Basics />
       <Download />
     </>
