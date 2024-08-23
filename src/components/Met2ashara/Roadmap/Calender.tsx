@@ -61,7 +61,6 @@ const Calender = () => {
     });
   };
 
-  console.log(selectedDays);
   
   return (
     <div className="page__container">
