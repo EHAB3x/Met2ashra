@@ -6,12 +6,14 @@ import {
   useState,
 } from "react";
 import { AuthContextType, userData } from "@interfaces/index";
+import useLogout from "@/src/hooks/useLogout";
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
+  const { mutate: triggerLogout } = useLogout();
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [userToken, setUserToken] = useState<string | null>(
     window.localStorage.getItem("token") || null
@@ -41,6 +43,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const logout = () => {
+    triggerLogout();
     setIsLoggedIn(false);
     setUserToken(null);
     setUser(null);

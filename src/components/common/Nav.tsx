@@ -20,7 +20,6 @@ const Nav = () => {
 
   const navigate = useNavigate();
   const auth = useAuth();
-  
 
   return (
     <header className="fixed w-full backdrop-blur-sm top-0 flex items-center justify-between gap-4 border-none bg-transparent py-4 px-4 md:px-6 z-[99999]">
@@ -147,8 +146,7 @@ const Nav = () => {
         </SheetContent>
       </Sheet>
 
-      {auth?.isLoggedIn ?
-      (
+      {auth?.isLoggedIn ? (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="secondary" size="icon" className="rounded-full">
@@ -157,17 +155,23 @@ const Nav = () => {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenuLabel>
+              Welcome {auth.user?.user.name}
+            </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Settings</DropdownMenuItem>
-            <DropdownMenuItem>Support</DropdownMenuItem>
+            <DropdownMenuItem>Profile</DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Logout</DropdownMenuItem>
+            <DropdownMenuItem
+              onClick={() => {
+                auth.logout();
+              }}
+            >
+              Logout
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-      ) 
-      : (
-        <Button variant="default" onClick={()=> navigate("/login")}>
+      ) : (
+        <Button variant="default" onClick={() => navigate("/login")}>
           Log in
         </Button>
       )}
