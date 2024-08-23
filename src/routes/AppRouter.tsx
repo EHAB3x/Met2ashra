@@ -6,7 +6,6 @@ import { HomeLayout, MainLayout } from "@layouts/index";
 import Login from "@pages/Login";
 import Signup from "@pages/Signup";
 import Companies from "@pages/Companies";
-import RoadMap from "@pages/RoadMap";
 import CompanyPage from "@pages/CompanyPage";
 // Router Functions
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
