@@ -8,7 +8,6 @@ import Login from "@pages/Login";
 import Signup from "@pages/Signup";
 import Companies from "@pages/Companies";
 import CompanyPage from "@pages/CompanyPage";
-import Calender from "@pages/Calender";
 import RoadMap from "@pages/RoadMap";
 // Router Functions
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -30,10 +29,6 @@ const router = createBrowserRouter([
       {
         path: "/roadmap",
         element: <RoadMap />,
-      },
-      {
-        path: "/roadmap/calender",
-        element: <Calender />,
       },
       {
         path: "/companies/:companyId",
