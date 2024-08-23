@@ -7,12 +7,14 @@ export interface Icompanies {
   address: string;
   website: string;
   industry: string;
+  email: string;
 }
 export interface Ijobs {
   name: string;
   description: string;
   company_id?: string;
   contact_email: string;
+  contact_phone:string;
   logo: string;
   field: string;
 }
@@ -49,4 +51,9 @@ export interface AuthContextType {
   userToken: string | null;
   login: (data: userData) => void;
   logout: () => void;
+}
+
+export interface ICompany {
+  company: Icompanies;
+  jobs: Ijobs;
 }

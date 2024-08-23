@@ -46,11 +46,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setUser(null);
     window.localStorage.removeItem("token");
   };
-
-  console.log(isLoggedIn);
-  console.log(userToken);
-  console.log(user);
-
   return (
     <AuthContext.Provider
       value={{ isLoggedIn, userToken, user, logout, login }}
