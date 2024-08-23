@@ -13,7 +13,7 @@ export interface IroadmapContent {
 export const columns: ColumnDef<IroadmapContent>[] = [
   {
     accessorKey: "description",
-    header: "description",
+    header: "What you will learn",
     cell: ({ row }) => (
       <div className="capitalize">{row.getValue("description")}</div>
     ),
@@ -21,6 +21,10 @@ export const columns: ColumnDef<IroadmapContent>[] = [
   {
     accessorKey: "link",
     header: "link",
-    cell: ({ row }) => <div className="capitalize">{row.getValue("link")}</div>,
+    cell: ({ row }) => (
+      <div className="capitalize">
+        <a href={row.getValue("link")}>Go to course</a>
+      </div>
+    ),
   },
 ];
