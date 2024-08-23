@@ -52,11 +52,11 @@ const Calender = () => {
     data
   ) => {
     const updatedData = { ...data, study_days: selectedDays };
-    console.log(updatedData);
     mutate(updatedData, {
       onSuccess(data) {
         console.log(data);
-        // Handle success (e.g., show success message)
+        
+        SuccessToast(data.message);
       },
     });
   };

@@ -15,11 +15,11 @@ import {
   FormMessage,
 } from "@components/ui/form";
 import useSignup from "@hooks/useSignup";
-// import SuccessToast from "@components/toasts/SuccessToast";
+import SuccessToast from "@components/toasts/SuccessToast";
+import { useNavigate } from "react-router-dom";
 // import ErrorToast from "@components/toasts/ErrorToast";
-// import { useNavigate } from "react-router-dom";
 const Signup = () => {
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
   const form = useForm<z.infer<typeof SignupSchema>>({
     mode: "onBlur",
     resolver: zodResolver(SignupSchema),
@@ -27,14 +27,8 @@ const Signup = () => {
   const { mutate } = useSignup();
   const submitForm: SubmitHandler<z.infer<typeof SignupSchema>> = (data) => {
     mutate(data, {
-      onSuccess(data) {
-        console.log(data);
-
-        // if (data.code) {
-        //   SuccessToast("Success login welcome to Met2ashara", navigate, "/");
-        // } else {
-        //   ErrorToast(data.error.message);
-        // }
+      onSuccess() {
+        SuccessToast("Account Created Successfully", navigate, "/");
       },
     });
   };
@@ -151,7 +145,7 @@ const Signup = () => {
                 </a>
               </div>
               <Button className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-200">
-                Log in
+              Sign up
               </Button>
             </form>
           </Form>
