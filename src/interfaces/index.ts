@@ -57,3 +57,23 @@ export interface ICompany {
   company: Icompanies;
   jobs: Ijobs;
 }
+
+export interface ISchedule{
+  id: string,
+  user_id: string,
+  roadmap_id: string,
+  content_id: string,
+  lesson_date: string,
+  created_at: string,
+  updated_at: string,
+  roadmap: {
+      id: string,
+      name: string
+  },
+  content: {
+      id: string,
+      title: string,
+      description: string,
+      link: string
+  }
+}

@@ -20,17 +20,14 @@ import {
 } from "@components/ui/select";
 import useAddSchedule from "@hooks/useAddSchedule";
 import SuccessToast from "@components/toasts/SuccessToast";
-import ErrorToast from "@components/toasts/ErrorToast";
-import { useNavigate } from "react-router-dom";
 import useGetRoadmaps from "@hooks/useGetRoadmaps";
 import { useState } from "react";
 import { makeCalenderSchema } from "@validations/makeCalender";
 
-const Calender = () => {
+const CalenderForm = () => {
   const { data: roadmapData, isLoading } = useGetRoadmaps();
   const { mutate } = useAddSchedule();
   const [selectedDays, setSelectedDays] = useState<string[]>([]); // Changed to an array
-  const navigate = useNavigate();
   const form = useForm<z.infer<typeof makeCalenderSchema>>({
     mode: "onBlur",
     resolver: zodResolver(makeCalenderSchema),
@@ -165,4 +162,4 @@ const Calender = () => {
   );
 };
 
-export default Calender;
+export default CalenderForm;
