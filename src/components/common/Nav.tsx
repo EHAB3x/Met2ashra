@@ -69,6 +69,17 @@ const Nav = () => {
         </NavLink>
 
         <NavLink
+          to="/companies"
+          className={({ isActive }) =>
+            `p-4 rounded-[10px] transition-all hover:text-white hover:gradients ${navLinkStyle(
+              { isActive }
+            )}`
+          }
+        >
+          Companies
+        </NavLink>
+
+        <NavLink
           to="/roadmap"
           className={({ isActive }) =>
             `p-4 rounded-[10px] transition-all hover:text-white hover:gradients ${navLinkStyle(

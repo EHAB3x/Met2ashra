@@ -5,26 +5,7 @@ import {
   useEffect,
   useState,
 } from "react";
-
-interface AuthContextType {
-  isLoggedIn: boolean;
-  user: userData | null;
-  userToken: string | null;
-  login: (data: userData) => void;
-  logout: () => void;
-}
-
-interface userData {
-  access_token: string;
-  token_type: string;
-  user: {
-    email: string;
-    id: string;
-    image_link: string;
-    name: string;
-    phone: string;
-  };
-}
+import { AuthContextType, userData } from "@interfaces/index";
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
@@ -65,11 +46,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setUser(null);
     window.localStorage.removeItem("token");
   };
-
-  console.log(isLoggedIn);
-  console.log(userToken);
-  console.log(user);
-
   return (
     <AuthContext.Provider
       value={{ isLoggedIn, userToken, user, logout, login }}
