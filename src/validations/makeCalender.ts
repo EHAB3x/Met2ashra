@@ -5,18 +5,19 @@ const makeCalenderSchema = z.object({
 
   start_date: z.string().nonempty({ message: "Start date is required" }),
 
-  study_days: z.enum(
-    [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ],
-    { message: "You must select a study day" }
-  ),
+  study_days: z
+    .array(
+      z.enum([
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ])
+    )
+    .min(1, { message: "You must select at least one study day" }),
 });
 
 export { makeCalenderSchema };
