@@ -1,4 +1,3 @@
-import { Link, useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@components/ui/button";
@@ -72,7 +71,10 @@ const RoadMap = () => {
           </div>
         </div>
       </div>
-      <FAQ />
+      <div className="container mx-auto mt-4">
+        <h2 className="font-bold text-[1.5rem]">FAQ</h2>
+        <FAQ />
+      </div>
       <Form {...form}>
         <form className="pt-8 p-6" onSubmit={form.handleSubmit(submitForm)}>
           <div className="col-span-1">
@@ -81,7 +83,7 @@ const RoadMap = () => {
               name="roadmapid"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Roadmap</FormLabel>
+                  <FormLabel className="font-bold text-[1.5rem]">Roadmap</FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -105,7 +107,7 @@ const RoadMap = () => {
             />
           </div>
 
-          <Button type="submit">Submit</Button>
+          <Button type="submit" className="mt-3" variant="gradientOutline">Submit</Button>
         </form>
       </Form>
       {selectedRoadmapId && roadmapContent && (

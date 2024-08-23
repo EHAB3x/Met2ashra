@@ -2,15 +2,16 @@ import { QueryClient, QueryClientProvider } from "react-query";
 
 // Layouts
 import { HomeLayout, MainLayout } from "@layouts/index";
+import AuthLayout from "../layouts/AuthLayout";
 // Pages
 import Login from "@pages/Login";
 import Signup from "@pages/Signup";
 import Companies from "@pages/Companies";
 import CompanyPage from "@pages/CompanyPage";
+import Calender from "@pages/Calender";
+import RoadMap from "@pages/RoadMap";
 // Router Functions
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AuthLayout from "../layouts/AuthLayout";
-import Calender from "../pages/Calender";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       },
       {
         path: "/roadmap",
+        element: <RoadMap />,
+      },
+      {
+        path: "/roadmap/calender",
         element: <Calender />,
       },
       {
