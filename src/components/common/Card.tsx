@@ -16,11 +16,15 @@ const Card = ({
   return (
     <div className="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-white my-10 mx-8 transform hover:scale-105 transition-transform duration-300 flex flex-col justify-between">
       <div>
-        <img
-          className="w-full h-48 object-contain rounded-t-2xl"
-          src={logo}
-          alt={`${name} logo`}
-        />
+        <div className="bg-slate-200">
+          {" "}
+          <img
+            className="w-full h-48 object-contain rounded-t-2xl"
+            src={logo}
+            alt={`${name} logo`}
+          />
+        </div>
+
         <div className="px-6 py-4">
           <div className="font-bold text-2xl mb-2 text-gray-800">{name}</div>
           <p className="inline-block bg-gradient-to-r from-sky-800 to-blue-900 text-white rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
