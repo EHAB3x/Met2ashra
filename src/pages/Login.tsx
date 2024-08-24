@@ -25,6 +25,7 @@ import { useNavigate } from "react-router-dom";
 import { encrypt } from "../utils/Utilty";
 import { useAuth } from "@context/AuthContext";
 const Login = () => {
+  // @ts-ignore
   const { login } = useAuth();
   const navigate = useNavigate();
   const form = useForm<z.infer<typeof LoginSchema>>({

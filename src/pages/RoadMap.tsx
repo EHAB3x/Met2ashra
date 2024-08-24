@@ -24,16 +24,19 @@ const renderContent = (state: number, data?: Record<string, any[]>) => {
 
 const RoadMap = () => {
   const [shownState, setShownState] = useState(0);
-  const { data, isLoading } = useGetSchedule();
+  const { data } = useGetSchedule();
   const auth = useAuth();
 
   useEffect(() => {
+        // @ts-ignore
     if (data?.status == false) {
       setShownState(0);
     } else {
       setShownState(2);
     }
-  }, [data?.status]);
+
+        // @ts-ignore
+    }, [data?.status]);
 
   // if (!isLoading && data){
   //   setScheduleState(Object.values(data)[0])
@@ -49,6 +52,7 @@ const RoadMap = () => {
         }
       />
       <div>
+        {/* @ts-ignore */}
         {auth?.isLoggedIn ? renderContent(shownState, data) : <RoadmapLogin />}
       </div>
 

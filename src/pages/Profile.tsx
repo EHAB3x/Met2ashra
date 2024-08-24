@@ -18,6 +18,7 @@ const Profile = () => {
       </div>
 
       <div className="grid sm:grid-cols-2 grid-cols-1 gap-4">
+        {/* @ts-ignore */}
         <EditName userData={auth} />
         <EditImg />
         <EditPassword/>

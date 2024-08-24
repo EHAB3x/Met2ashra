@@ -29,10 +29,10 @@ const EditPassword = () => {
 
     if (data) {
       mutatePassword(data, {
-        onSuccess: (data) => {
+        onSuccess: () => {
           console.log("j");
         },
-        onError: (error) => console.log("j"),
+        onError: () => console.log("j"),
       });
     }
   };
@@ -40,7 +40,7 @@ const EditPassword = () => {
     <div className="sm:col-span-2 col-span-1">
       <Form {...form}>
         <form
-          className="flex flex gap-4"
+          className="flex gap-4"
           onSubmit={form.handleSubmit(handlePasswordSubmit)}
         >
           <div className="mb-4 w-full">

@@ -54,11 +54,12 @@ export interface AuthContextType {
   userToken: string | null;
   login: (data: userData) => void;
   logout: () => void;
+  SetUserName: (name:string)=> void;
 }
 
 export interface ICompany {
   company: Icompanies;
-  jobs: Ijobs;
+  jobs: Ijobs[];
 }
 
 export interface ISchedule{

@@ -7,7 +7,9 @@ const useGetCompanyById = (companyId: number) => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
-    return response.json();
+    const commpany = await response.json();
+
+    return commpany as ICompany;
   });
 };
 
