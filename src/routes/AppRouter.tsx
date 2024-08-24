@@ -10,11 +10,12 @@ import Companies from "@pages/Companies";
 import CompanyPage from "@pages/CompanyPage";
 import RoadMap from "@pages/RoadMap";
 import Profile from "@pages/Profile";
-// Router Functions
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { AuthProvider } from "../context/AuthContext";
 import Error from "@pages/Error";
 import Contact from "@pages/Contact";
+import About from "@pages/About";
+// Router Functions
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { AuthProvider } from "@context/AuthContext";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <HomeLayout />,
+      },
+      {
+        path:"/about-us",
+        element: <About />
       },
       {
         path: "/companies",
