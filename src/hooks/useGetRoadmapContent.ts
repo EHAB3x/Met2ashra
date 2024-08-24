@@ -19,7 +19,7 @@ function useGetRoadmapContent(id: string) {
       );
       const data = await res.json();
       console.log(data);
-      return data as IroadmapContent[];
+      return data as IroadmapContent;
     },
   });
 }

@@ -1,3 +1,4 @@
+import { IContents } from "@/src/interfaces";
 import { ColumnDef } from "@tanstack/react-table";
 
 export interface IroadmapContent {
@@ -10,7 +11,7 @@ export interface IroadmapContent {
   }[];
 }
 
-export const columns: ColumnDef<IroadmapContent>[] = [
+export const columns: ColumnDef<IContents>[] = [
   {
     accessorKey: "description",
     header: () => {

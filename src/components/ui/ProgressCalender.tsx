@@ -4,23 +4,21 @@ import * as React from "react";
 import { Calendar } from "@components/ui/calendar"; // Adjust import according to your actual path
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
-import { IDayContent } from "@/src/interfaces";
 
 interface ProgressCalenderProps {
-  dates: Date[];
-  data: {
+  dates: IContent[]; 
+}
+interface IContent{
     lesson_date: string;
     content: {
       title: string;
       description: string;
       link: string;
     };
-  }[];
 }
 
 const ProgressCalender: React.FC<ProgressCalenderProps> = ({ dates  }) => {
-  const [selectedDates, setSelectedDates] = React.useState<Date[]>(dates);
-  
+    
   const datesArray = dates.map((date) => {
     return new Date(date.lesson_date);
   });
@@ -34,7 +32,7 @@ const ProgressCalender: React.FC<ProgressCalenderProps> = ({ dates  }) => {
     
     const formattedDate = `${year}-${month}-${day}`;
     
-    const dayContent = selectedDates.filter((date)=> date.lesson_date === formattedDate )[0];
+    const dayContent = dates.filter((date)=> date.lesson_date === formattedDate )[0];
     
     if (dayContent) {
       const MySwal = withReactContent(Swal);
@@ -65,12 +63,7 @@ const ProgressCalender: React.FC<ProgressCalenderProps> = ({ dates  }) => {
         selected={datesArray}
         onSelect={() => {}}
         onDayClick={(date) => handleClick(date)}
-        className="container mx-auto rounded-md border border-2 border-primary px-6 my-6 w-fit"
-        dayClassName={(date) =>
-          selectedDates.some((d) => d.toDateString() === date.toDateString())
-            ? "bg-primary"
-            : ""
-        }
+        className="container mx-auto rounded-md border-2 border-primary px-6 my-6 w-fit"
       />
     </div>
   );

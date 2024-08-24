@@ -1,7 +1,8 @@
-import { IroadmapContent, columns } from "./Columns";
+import { IContents } from "@/src/interfaces";
+import { columns } from "./Columns";
 import { DataTable } from "./DataTable";
 
-const RenderRoadmapContent = ({ data }: { data: IroadmapContent[] }) => {
+const RenderRoadmapContent = ({ data }: { data:  IContents[] }) => {
   console.log(data);
 
   return (

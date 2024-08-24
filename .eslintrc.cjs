@@ -1,3 +1,5 @@
+const { any } = require("zod");
+
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
@@ -12,7 +14,9 @@ module.exports = {
   rules: {
     'react-refresh/only-export-components': [
       'warn',
-      { allowConstantExport: true },
+      { allowConstantExport: true,
+        any : false,
+      },
     ],
   },
 }

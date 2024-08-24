@@ -25,11 +25,13 @@ export interface Iroadmap {
 export interface IroadmapContent {
   id: string;
   name: string;
-  contents: {
+  contents: IContents[]
+}
+
+export interface IContents{
     id: string;
     description: string;
     link: string;
-  }[];
 }
 
 
