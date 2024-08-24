@@ -21,7 +21,7 @@
 
 # Met2ashra Frontend
 
-This project is a frontend project built using React.js and TypeScript. Below is a summary of the libraries and technologies we used:
+This project is a frontend project built using React.js and TypeScript. Below is a summary of the libraries and technologies we used to handle authentication, navigation and enhance user experience in our project.We add calender to make it easy for user to track his progress.We create dashboard to make it easy for admins to manage the website.
 
 ## Libraries and Technologies
 
@@ -35,6 +35,7 @@ This project is a frontend project built using React.js and TypeScript. Below is
 - **Radix UI**: Provides accessible and customizable low-level UI components such as Accordions, Dialogs, and Dropdown Menus.
 - **React Icons**: A library providing popular icons as React components, making it easy to include icons in the UI.
 - **Embla Carousel**: A lightweight carousel library for creating responsive and mobile-friendly carousels in React.
+- **Shdcn**: We we use it's component to make coding stage faster and user it's responsive features. 
 
 ### State Management and Data Fetching
 - **Redux Toolkit**: A set of tools for efficient Redux development, providing good practices and reducing boilerplate.
@@ -45,7 +46,6 @@ This project is a frontend project built using React.js and TypeScript. Below is
 - **Zod**: A schema declaration and validation library for TypeScript that helps ensure the correctness of API data structures.
 
 ### Utility Libraries
-- **Axios**: A promise-based HTTP client for making requests to APIs, widely used for handling network requests.
 - **SweetAlert2**: A library for creating beautiful, responsive, customizable popup messages in web applications.
 - **Clsx**: A utility for constructing `className` strings conditionally, simplifying dynamic class assignments in JSX.
 - **Date-fns**: A modern JavaScript date utility library for working with dates in a more readable and maintainable way.
