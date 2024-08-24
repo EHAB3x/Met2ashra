@@ -27,7 +27,7 @@ const EditImg = () => {
         onSuccess: () => {
           console.log("j");
         },
-        onError: (error) => console.log("j"),
+        onError: () => console.log("j"),
       });
     }
   };

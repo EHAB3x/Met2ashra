@@ -36,6 +36,7 @@ export interface IroadmapContent {
 export interface userData {
   access_token: string;
   token_type: string;
+  SetUserName: (name:string)=> void;
   user: {
     name: string;
     email: string;

@@ -13,7 +13,8 @@ import {
 } from "@components/ui/form";
 import { Button } from "@components/ui/button";
 import { Input } from "@components/ui/input";
-const EditName = ({ userData }) => {
+import { userData } from "@/src/interfaces";
+const EditName = ({ userData } : {userData : userData}) => {
   const { mutate: mutateName } = useEditName();
   const form = useForm<z.infer<typeof EditNameSchema>>({
     mode: "onBlur",
@@ -28,7 +29,7 @@ const EditName = ({ userData }) => {
           console.log("j");
           userData.SetUserName(data.name);
         },
-        onError: (error) => console.log("j"),
+        onError: () => console.log("j"),
       });
     }
   };
