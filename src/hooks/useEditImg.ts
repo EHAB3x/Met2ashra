@@ -9,7 +9,7 @@ const useEditImg = () => {
   const token = localStorage.getItem("token") || "";
   return useMutation({
     mutationFn: (data: Iprops) =>
-      fetch(`https://ncodenfun.frevva.com/public/api/change-image`, {
+      fetch(`https://ncodenfun.frevva.com/api/change-image`, {
         method: "PUT",
         headers: {
           authorization: `Bearer ${decrypt(

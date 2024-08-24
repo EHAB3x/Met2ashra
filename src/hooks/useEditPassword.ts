@@ -2,14 +2,14 @@ import { useMutation } from "react-query";
 import { decrypt } from "../utils/Utilty";
 
 interface Iprops {
-  name: string;
+  password: string;
+  password_confirmation: string;
 }
-
 const useEditPassword = () => {
   const token = localStorage.getItem("token") || "";
   return useMutation({
     mutationFn: (data: Iprops) =>
-      fetch(`https://ncodenfun.frevva.com/public/api/change-name`, {
+      fetch(`https://ncodenfun.frevva.com/api/change-password`, {
         method: "PUT",
         headers: {
           authorization: `Bearer ${decrypt(
@@ -19,7 +19,8 @@ const useEditPassword = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name: data.name,
+          password: data.password,
+          password_confirmation: data.password_confirmation,
         }),
       }).then((response) => response.json()),
   });

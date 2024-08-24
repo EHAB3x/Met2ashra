@@ -23,22 +23,20 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const token = window.localStorage.getItem("token");
     const user = window.localStorage.getItem("user");
-  
+
     if (token) {
       setIsLoggedIn(true);
       setUserToken(token);
-      
     } else {
       setIsLoggedIn(false);
       setUserToken(null);
       setUser(null);
     }
 
-    if(user){
+    if (user) {
       setUser(JSON.parse(user));
     }
   }, []);
-  
 
   const login = (data: userData) => {
     const { access_token } = data;
@@ -49,8 +47,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       setUser(data);
     }
   };
-  
 
+  const SetUserName = (name: string) => {
+    setUser((prev) => {
+      if (prev !== null) {
+        return { ...prev, name };
+      }
+      return null;
+    });
+  };
   const logout = () => {
     triggerLogout();
     setIsLoggedIn(false);
@@ -59,10 +64,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     window.localStorage.removeItem("token");
     window.localStorage.removeItem("user");
   };
-  
+
   return (
     <AuthContext.Provider
-      value={{ isLoggedIn, userToken, user, logout, login }}
+      value={{ isLoggedIn, userToken, user, logout, login, SetUserName }}
     >
       {children}
     </AuthContext.Provider>
