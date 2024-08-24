@@ -47,8 +47,8 @@ const Profile = () => {
     });
   };
   return (
-    <div className="container mx-auto mt-[88px]">
-      <div className="flex sm:flex-row flex-col sm:gap-16 gap-8">
+    <div className="container mx-auto my-[88px] relative">
+      <div className="flex sm:flex-row flex-col sm:gap-16 gap-8npm ">
         <div className="w-[250px] h-[250px]">
           <img
             src={user?.user.image_link}
@@ -61,7 +61,7 @@ const Profile = () => {
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(submitForm)}
-              className="flex flex-col gap-4"
+              className="sm:grid grid-cols-2 flex flex-col sm:gap-x-16 gap-4"
             >
               <div className="mb-4">
                 <FormField
@@ -149,7 +149,7 @@ const Profile = () => {
               <div className= "col-span-2 flex justify-center">
                 <Button
                   type="submit"
-                  className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-200"
+                  className="sm:w-[50%] w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-200"
                 >
                   Change Your Data
                 </Button>
