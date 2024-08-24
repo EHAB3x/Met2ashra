@@ -11,6 +11,8 @@ const buttonVariants = cva(
       variant: {
         default:
           "btn-primary transition-all bg-white !py-3 !px-6 text-black hover:gradients hover:text-white",
+        primary:
+        "border-2 border-solid btn-primary transition-all gradients !py-3 !px-6 text-white hover:gradients-reverse ",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:

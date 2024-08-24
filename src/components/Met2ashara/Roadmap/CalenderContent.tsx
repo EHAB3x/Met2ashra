@@ -6,9 +6,7 @@ interface CalenderContentProps {
 }
 
 const CalenderContent: React.FC<CalenderContentProps> = ({ data }) => {
-  const resultArray = Object.values(data).flat();
-  console.log(resultArray);
-  
+  const resultArray = Object.values(data).flat();  
   return (
     <ProgressCalender dates={resultArray}/>
   );

@@ -23,11 +23,14 @@ import SuccessToast from "@components/toasts/SuccessToast";
 import useGetRoadmaps from "@hooks/useGetRoadmaps";
 import { useState } from "react";
 import { makeCalenderSchema } from "@validations/makeCalender";
+import { useQueryClient } from "react-query"; // Import useQueryClient
 
 const CalenderForm = () => {
   const { data: roadmapData, isLoading } = useGetRoadmaps();
+  const queryClient = useQueryClient(); // Initialize the query client
   const { mutate } = useAddSchedule();
-  const [selectedDays, setSelectedDays] = useState<string[]>([]); // Changed to an array
+  const [selectedDays, setSelectedDays] = useState<string[]>([]);
+
   const form = useForm<z.infer<typeof makeCalenderSchema>>({
     mode: "onBlur",
     resolver: zodResolver(makeCalenderSchema),
@@ -40,8 +43,8 @@ const CalenderForm = () => {
   const toggleDay = (day: string) => {
     setSelectedDays((prevDays) =>
       prevDays.includes(day)
-        ? prevDays.filter((d) => d !== day) // Remove the day if it's already selected
-        : [...prevDays, day] // Add the day if it's not selected
+        ? prevDays.filter((d) => d !== day)
+        : [...prevDays, day]
     );
   };
 
@@ -52,13 +55,12 @@ const CalenderForm = () => {
     mutate(updatedData, {
       onSuccess(data) {
         console.log(data);
-        
         SuccessToast(data.message);
+        queryClient.invalidateQueries("Scheduled"); // Refetch the schedule data
       },
     });
   };
 
-  
   return (
     <div className="page__container">
       <Form {...form}>

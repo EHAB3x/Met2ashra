@@ -2,10 +2,11 @@ import RoadmapSec from "@assets/svg/RoadmapSec.svg";
 import Hero from "@components/common/Hero";
 import RoadmapContent from "@components/Met2ashara/Roadmap/RoadmapContent";
 import Calender from "@components/Met2ashara/Roadmap/CalenderForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@components/ui/button";
 import useGetSchedule from "@hooks/useGetSchedule";
 import CalenderContent from "@components/Met2ashara/Roadmap/CalenderContent";
+import useGetRoadmaps from "../hooks/useGetRoadmaps";
 
 const renderContent = (state: number, data?: Record<string, any[]>) => {
   switch (state) {
@@ -21,10 +22,30 @@ const renderContent = (state: number, data?: Record<string, any[]>) => {
 };
 
 const RoadMap = () => {
-  const [shownState, setShownState] = useState(2);
+  const [shownState, setShownState] = useState(0);
   const { data, isLoading } = useGetSchedule();
+  
+  
+  useEffect(()=>{
+    if(data?.status == false){
+      setShownState(0)
+      
+    }else{
+      setShownState(2)
+    }
+  },[data?.status])
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading){
+    return <p>Loading...</p>;
+  } 
+
+  
+
+  // if (!isLoading && data){
+  //   setScheduleState(Object.values(data)[0])
+  // } 
+  
+  
 
   return (
     <>

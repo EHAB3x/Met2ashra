@@ -40,7 +40,7 @@ const ProgressCalender: React.FC<ProgressCalenderProps> = ({ dates }) => {
         onSelect={()=>{}}
         onDayClick={(date)=> handleHover(date)}
         
-        className="container mx-auto rounded-md border border-primary my-6 w-[90%]"
+        className="container mx-auto rounded-md border border-2 border-primary px-6 my-6 w-fit"
         dayClassName={(date) =>
           selectedDates.some(d => d.toDateString() === date.toDateString()) ? "bg-primary" : ""
         }

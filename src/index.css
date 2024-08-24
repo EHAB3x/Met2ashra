@@ -71,6 +71,9 @@
   .gradients {
     background: linear-gradient(90deg, #113573 0%, #4B97F4 100%);
   }
+  .gradients-reverse{
+    background: linear-gradient(90deg, #4B97F4 0%, #113573 100%);
+  }
 }
 
 body{
