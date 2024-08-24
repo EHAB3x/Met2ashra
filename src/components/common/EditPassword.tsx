@@ -37,13 +37,13 @@ const EditPassword = () => {
     }
   };
   return (
-    <div>
+    <div className="sm:col-span-2 col-span-1">
       <Form {...form}>
         <form
-          className="flex flex-col gap-4"
+          className="flex flex gap-4"
           onSubmit={form.handleSubmit(handlePasswordSubmit)}
         >
-          <div className="mb-4">
+          <div className="mb-4 w-full">
             <FormField
               control={form.control}
               name="password"
@@ -63,7 +63,7 @@ const EditPassword = () => {
               )}
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-4 w-full">
             <FormField
               control={form.control}
               name="password_confirmation"

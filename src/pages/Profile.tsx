@@ -8,10 +8,21 @@ const Profile = () => {
   console.log(auth);
 
   return (
-    <div className="flex flex-col gap-4 container py-20">
-      <EditName userData={auth} />
-      <EditImg />
-      <EditPassword />
+    <div className="flex sm:flex-row flex-col gap-4 container py-20">
+      <div>
+        <img 
+          src={auth?.user?.user.image_link} 
+          alt="" 
+          className="w-[200px] h-[200px] rounded-full"
+        />
+      </div>
+
+      <div className="grid sm:grid-cols-2 grid-cols-1 gap-4">
+        <EditName userData={auth} />
+        <EditImg />
+        <EditPassword/>
+      </div>
+
     </div>
   );
 };
