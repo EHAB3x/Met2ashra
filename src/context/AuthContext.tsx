@@ -51,11 +51,20 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const SetUserName = (name: string) => {
     setUser((prev) => {
       if (prev !== null) {
-        return { ...prev, name };
+        return {
+          ...prev,
+
+          user: {
+            ...prev.user,
+
+            name: name,
+          },
+        };
       }
-      return null;
+      return prev;
     });
   };
+
   const logout = () => {
     triggerLogout();
     setIsLoggedIn(false);
