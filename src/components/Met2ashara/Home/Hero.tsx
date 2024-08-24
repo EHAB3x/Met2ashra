@@ -33,7 +33,7 @@ const Hero = () => {
             <div className="flex-1">
               <Select>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select Your Road" />
+                  <SelectValue placeholder="Select Your Concept" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>

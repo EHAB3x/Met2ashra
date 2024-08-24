@@ -10,19 +10,19 @@ import {
 import { Button } from "../../ui/button";
 import { useNavigate } from "react-router-dom";
 
-export function CarouselCompanies() {
+export function CarouselMentors() {
   const { data, isLoading } = useGetCompanies();
   const navigate = useNavigate();
   if (isLoading) {
     return <div>Loading...</div>;
   }
   return (
-    <div className="bg-[url('src/assets/svg/companybg.svg')] bg-no-repeat bg-cover py-12 mb-12 container mx-auto">
+    <div className="py-12 mb-12 container mx-auto">
       <h2 className="text-[32px] font-bold ">
-        Top Company
+        Top Mentors
       </h2>
       <p className="text-[#00000099]">
-        the most renowned companies, their job roles, and the number of employees.
+        The next section will cover notable mentors, their areas of expertise, and their contributions.
       </p>
       <Carousel className="w-[90%] mx-auto my-4 py-5">
         <CarouselContent className="-ml-1 gap-4">
@@ -44,13 +44,13 @@ export function CarouselCompanies() {
       </Carousel>
 
       <Button 
-        variant="gradientOutline" 
-        className="flex mx-auto rounded-[100px] text-transparent bg-clip-text bg-gradient-to-r from-[#113573] to-[#4B97F4] font-bold text-[1.5rem] w-[300px] h-[50px]"
-        onClick={()=> navigate("/companies")}
+        variant="primary" 
+        className="flex mx-auto rounded-[100px] text-transparent bg-clip-text bg-gradient-to-r from-[#113573] to-[#4B97F4] font-bold text-[1.5rem] w-[300px] h-[50px] hover:text-white"
+        onClick={()=> navigate("/mentors")}
       >
         Open More
       </Button>
     </div>
   );
 }
-export default CarouselCompanies;
+export default CarouselMentors;
