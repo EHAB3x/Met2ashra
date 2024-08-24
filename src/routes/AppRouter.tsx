@@ -13,12 +13,13 @@ import Profile from "@pages/Profile";
 // Router Functions
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AuthProvider } from "../context/AuthContext";
+import Error from "@pages/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
-    errorElement: <p>Error</p>,
+    errorElement: <Error />,
     children: [
       {
         index: true,
@@ -45,7 +46,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <AuthLayout />,
-    errorElement: <p>Error</p>,
+    errorElement: <Error />,
     children: [
       {
         path: "login",
