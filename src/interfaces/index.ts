@@ -37,10 +37,10 @@ export interface userData {
   access_token: string;
   token_type: string;
   user: {
+    name: string;
     email: string;
     id: string;
     image_link: string;
-    name: string;
     phone: string;
   };
 }

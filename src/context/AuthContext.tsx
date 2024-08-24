@@ -59,8 +59,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     window.localStorage.removeItem("token");
     window.localStorage.removeItem("user");
   };
-
-  console.log(user);
   
   return (
     <AuthContext.Provider

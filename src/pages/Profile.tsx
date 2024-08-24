@@ -1,8 +1,8 @@
+import React from 'react'
+
 const Profile = () => {
   return (
-    <div className="container mx-auto mt-[88px]">
-        
-    </div>
+    <div>Profile</div>
   )
 }
 
