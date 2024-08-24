@@ -18,11 +18,10 @@ interface ProgressCalenderProps {
   }[];
 }
 
-const ProgressCalender: React.FC<ProgressCalenderProps> = ({ dates, data = [] }) => {
+const ProgressCalender: React.FC<ProgressCalenderProps> = ({ dates  }) => {
   const [selectedDates, setSelectedDates] = React.useState<Date[]>(dates);
   
   const datesArray = dates.map((date) => {
-    // @ts-ignore
     return new Date(date.lesson_date);
   });
 

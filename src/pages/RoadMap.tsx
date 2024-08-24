@@ -6,7 +6,8 @@ import { useEffect, useState } from "react";
 import { Button } from "@components/ui/button";
 import useGetSchedule from "@hooks/useGetSchedule";
 import CalenderContent from "@components/Met2ashara/Roadmap/CalenderContent";
-import useGetRoadmaps from "../hooks/useGetRoadmaps";
+import { useAuth } from "@context/AuthContext";
+import RoadmapLogin from "../components/Met2ashara/Roadmap/RoadmapLogin";
 
 const renderContent = (state: number, data?: Record<string, any[]>) => {
   switch (state) {
@@ -17,35 +18,30 @@ const renderContent = (state: number, data?: Record<string, any[]>) => {
     case 2:
       return data ? <CalenderContent data={data} /> : <p>No data available</p>;
     default:
-      return null; 
+      return null;
   }
 };
 
 const RoadMap = () => {
   const [shownState, setShownState] = useState(0);
   const { data, isLoading } = useGetSchedule();
-  
-  
-  useEffect(()=>{
-    if(data?.status == false){
-      setShownState(0)
-      
-    }else{
-      setShownState(2)
+  const auth = useAuth();
+
+  useEffect(() => {
+    if (data?.status == false) {
+      setShownState(0);
+    } else {
+      setShownState(2);
     }
-  },[data?.status])
+  }, [data?.status]);
 
-  if (isLoading){
+  if (isLoading) {
     return <p>Loading...</p>;
-  } 
-
-  
+  }
 
   // if (!isLoading && data){
   //   setScheduleState(Object.values(data)[0])
-  // } 
-  
-  
+  // }
 
   return (
     <>
@@ -57,15 +53,18 @@ const RoadMap = () => {
         }
       />
       <div>
-        {renderContent(shownState, data)}
+        {auth?.isLoggedIn ? renderContent(shownState, data) : <RoadmapLogin />}
       </div>
-      <Button 
-        variant="gradientOutline" 
-        onClick={() => setShownState(shownState === 0 ? 1 : 0)}
-        className="block mx-auto mb-8"
-      >
-        Go To {shownState === 0 ? "Calender" : "Roadmap"}
-      </Button>
+
+      {auth?.isLoggedIn && (
+        <Button
+          variant="gradientOutline"
+          onClick={() => setShownState(shownState === 0 ? 1 : 0)}
+          className="block mx-auto mb-8"
+        >
+          Go To {shownState === 0 ? "Calender" : "Roadmap"}
+        </Button>
+      )}
     </>
   );
 };
