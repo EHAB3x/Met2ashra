@@ -156,10 +156,10 @@ const Nav = () => {
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>
-              Welcome {auth.user?.user.name}
+              Welcome {auth ? auth?.user?.user.name :""}
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Profile</DropdownMenuItem>
+            <DropdownMenuItem onClick={()=> navigate("/profile")}>Profile</DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem
               onClick={() => {

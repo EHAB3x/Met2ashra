@@ -35,8 +35,6 @@ const Login = () => {
   const submitForm: SubmitHandler<z.infer<typeof LoginSchema>> = (data) => {
     mutate(data, {
       onSuccess(data) {
-        console.log(data);
-
         localStorage.setItem(
           "token",
           encrypt(data.access_token, import.meta.env.VITE_TOKEN_SECRET)

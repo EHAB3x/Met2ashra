@@ -9,8 +9,10 @@ import Signup from "@pages/Signup";
 import Companies from "@pages/Companies";
 import CompanyPage from "@pages/CompanyPage";
 import RoadMap from "@pages/RoadMap";
+import Profile from "@pages/Profile";
 // Router Functions
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { AuthProvider } from "../context/AuthContext";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +36,10 @@ const router = createBrowserRouter([
         path: "/companies/:companyId",
         element: <CompanyPage />,
       },
+      {
+        path:"/profile",
+        element: <Profile />
+      }
     ],
   },
   {
@@ -56,9 +62,11 @@ const router = createBrowserRouter([
 const queryClient = new QueryClient();
 const AppRouter = () => {
   return (
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
+    <AuthProvider>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </AuthProvider>
   );
 };
 
