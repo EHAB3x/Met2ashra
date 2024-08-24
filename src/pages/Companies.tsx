@@ -2,10 +2,11 @@ import Card from "@/src/components/common/Card";
 import useGetCompanies from "@hooks/useGetCompanies";
 import companysection from "@assets/svg/companysection.svg";
 import Hero from "@components/common/Hero";
+import SkeletonCard from "@components/common/SkeletonCard";
 const Companies = () => {
   const { data, isLoading } = useGetCompanies();
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <SkeletonCard />;
   }
   return (
     <>
