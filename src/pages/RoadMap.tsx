@@ -35,10 +35,6 @@ const RoadMap = () => {
     }
   }, [data?.status]);
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
   // if (!isLoading && data){
   //   setScheduleState(Object.values(data)[0])
   // }
