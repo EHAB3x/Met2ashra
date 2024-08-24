@@ -14,38 +14,78 @@ import {
   FormMessage,
 } from "@components/ui/form";
 
-import useLogin from "@hooks/useLogin";
 import SuccessToast from "@components/toasts/SuccessToast";
 import ErrorToast from "@components/toasts/ErrorToast";
 import { useNavigate } from "react-router-dom";
-import { encrypt } from "../utils/Utilty";
 import { useAuth } from "../context/AuthContext";
+import useEditName from "../hooks/useEditName";
+import useEditImg from "../hooks/useEditImg";
+import useEditPassword from "../hooks/useEditPassword";
+import { EditImgSchema } from "../validations/editImg";
+import { EditNameSchema } from "../validations/editName";
+import { EditPasswordSchema } from "../validations/editPassword";
+
 const Profile = () => {
   const auth = useAuth();
   const user = auth?.user;
   const navigate = useNavigate();
+
   const form = useForm<z.infer<typeof ProfileSchema>>({
     mode: "onBlur",
     resolver: zodResolver(ProfileSchema),
   });
-  const { mutate } = useLogin();
 
-  const submitForm: SubmitHandler<z.infer<typeof ProfileSchema>> = (data) => {
-    mutate(data, {
-      onSuccess(data) {
-        localStorage.setItem(
-          "token",
-          encrypt(data.access_token, import.meta.env.VITE_TOKEN_SECRET)
-        );
-        if (data.access_token) {
-          auth?.login(data);
-          SuccessToast("Success login welcome to Met2ashara", navigate, "/");
-        } else {
-          ErrorToast(data.error.message);
-        }
-      },
-    });
+  const { mutate: mutateName } = useEditName();
+  const { mutate: mutateImg } = useEditImg();
+  const { mutate: mutatePassword } = useEditPassword();
+
+  // Handle name submission
+  const handleNameSubmit: SubmitHandler<z.infer<typeof EditNameSchema>> = (
+    data
+  ) => {
+    if (data) {
+      mutateName(data, {
+        onSuccess: () => SuccessToast("Name updated successfully!"),
+        onError: (error) => ErrorToast(error.message),
+      });
+    }
   };
+
+  // Handle image submission
+  const handleImageSubmit: SubmitHandler<z.infer<typeof EditImgSchema>> = (
+    data
+  ) => {
+    if (data) {
+      mutateImg(data, {
+        onSuccess: () => SuccessToast("Image updated successfully!"),
+        onError: (error) => ErrorToast(error.message),
+      });
+    }
+  };
+
+  // Handle password submission with confirmation
+  const handlePasswordSubmit: SubmitHandler<
+    z.infer<typeof EditPasswordSchema>
+  > = (data) => {
+    if (data.password !== data.password_confirmation) {
+      ErrorToast("Passwords do not match");
+      return;
+    }
+
+    if (data) {
+      mutatePassword(data, {
+        onSuccess: (data) => {
+          SuccessToast(
+            "Password updated successfully! Redirecting...",
+            navigate,
+            "/"
+          );
+        },
+        onError: (error) => ErrorToast(error.message),
+      });
+    }
+  };
+
   return (
     <div className="container mx-auto mt-[88px]">
       <div className="flex sm:flex-row flex-col sm:gap-16 gap-8">
@@ -59,10 +99,7 @@ const Profile = () => {
 
         <div>
           <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(submitForm)}
-              className="flex flex-col gap-4"
-            >
+            <form className="flex flex-col gap-4">
               <div className="mb-4">
                 <FormField
                   control={form.control}
@@ -73,20 +110,26 @@ const Profile = () => {
                       <FormControl>
                         <Input
                           className="w-full px-4 py-2 bg-gray-100 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                          placeholder="Enter Your Mobile Number"
+                          placeholder="Enter Your Name"
                           {...field}
                         />
                       </FormControl>
-
                       <FormMessage />
+                      <Button
+                        onClick={form.handleSubmit(handleNameSubmit)}
+                        className="mt-2 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-200"
+                      >
+                        Save Name
+                      </Button>
                     </FormItem>
                   )}
                 />
               </div>
+
               <div className="mb-4">
                 <FormField
                   control={form.control}
-                  name="img"
+                  name="image"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Image</FormLabel>
@@ -94,16 +137,22 @@ const Profile = () => {
                         <Input
                           type="file"
                           className="w-full px-4 py-2 bg-gray-100 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                          placeholder="Please enter your Password"
                           {...field}
                         />
                       </FormControl>
-
                       <FormMessage />
+                      <Button
+                        onClick={form.handleSubmit(handleImageSubmit)}
+                        className="mt-2 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-200"
+                      >
+                        Save Image
+                      </Button>
                     </FormItem>
                   )}
                 />
               </div>
+
+              {/* Password and Confirm Password Inputs */}
               <div className="mb-4">
                 <FormField
                   control={form.control}
@@ -115,11 +164,10 @@ const Profile = () => {
                         <Input
                           type="password"
                           className="w-full px-4 py-2 bg-gray-100 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                          placeholder="Please enter your Password"
+                          placeholder="Enter Password"
                           {...field}
                         />
                       </FormControl>
-
                       <FormMessage />
                     </FormItem>
                   )}
@@ -136,23 +184,20 @@ const Profile = () => {
                         <Input
                           type="password"
                           className="w-full px-4 py-2 bg-gray-100 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                          placeholder="Please enter your Password"
+                          placeholder="Confirm Password"
                           {...field}
                         />
                       </FormControl>
-
                       <FormMessage />
+                      <Button
+                        onClick={form.handleSubmit(handlePasswordSubmit)}
+                        className="mt-2 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-200"
+                      >
+                        Save Password
+                      </Button>
                     </FormItem>
                   )}
                 />
-              </div>
-              <div className= "col-span-2 flex justify-center">
-                <Button
-                  type="submit"
-                  className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-200"
-                >
-                  Change Your Data
-                </Button>
               </div>
             </form>
           </Form>

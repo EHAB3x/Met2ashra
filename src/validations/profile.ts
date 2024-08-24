@@ -26,9 +26,9 @@ const ProfileSchema = z.object({
     .max(32, {
       message: "Password confirmation must be at most 32 characters long",
     }),
-  img: z
-  .string()
-  .min(4, { message: "Image link must be at least 4 characters long" }),
+  image: z
+    .string()
+    .min(4, { message: "Image link must be at least 4 characters long" }),
 });
 
 export { ProfileSchema };
