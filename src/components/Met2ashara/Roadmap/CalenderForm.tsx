@@ -24,6 +24,7 @@ import useGetRoadmaps from "@hooks/useGetRoadmaps";
 import { useState } from "react";
 import { makeCalenderSchema } from "@validations/makeCalender";
 import { useQueryClient } from "react-query"; // Import useQueryClient
+import SkeletonCard from "../../common/SkeletonCard";
 
 const CalenderForm = () => {
   const { data: roadmapData, isLoading } = useGetRoadmaps();
@@ -37,7 +38,7 @@ const CalenderForm = () => {
   });
 
   if (isLoading) {
-    return <p>Loading roadmaps...</p>;
+    return <SkeletonCard />;
   }
 
   const toggleDay = (day: string) => {

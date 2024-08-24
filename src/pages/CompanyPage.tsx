@@ -3,12 +3,13 @@ import { useParams } from "react-router-dom";
 import { FaLocationDot, FaPhone, FaEarthAfrica } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { Ijobs } from "@interfaces/index";
+import SkeletonCard from "@components/common/SkeletonCard";
 const CompanyPage = () => {
   const { companyId } = useParams<{ companyId: string }>();
   const { data, isLoading } = useGetCompanyById(Number(companyId));
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <SkeletonCard/>;
   }
 
   if (!data || !data.company || data.jobs.length === 0) {

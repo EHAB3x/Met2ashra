@@ -14,6 +14,7 @@ import Profile from "@pages/Profile";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AuthProvider } from "../context/AuthContext";
 import Error from "@pages/Error";
+import Contact from "@pages/Contact";
 
 const router = createBrowserRouter([
   {
@@ -38,9 +39,13 @@ const router = createBrowserRouter([
         element: <CompanyPage />,
       },
       {
-        path:"/profile",
-        element: <Profile />
-      }
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
     ],
   },
   {
