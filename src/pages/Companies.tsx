@@ -17,10 +17,10 @@ const Companies = () => {
         }
       />
       <div className="my-10">
-        <h1 className="text-4xl font-bold text-center mb-6 text-blue-400">
+        <h1 className="text-4xl font-bold text-center mb-6 text-black">
           Companies
         </h1>
-        <div className="flex flex-wrap justify-center">
+        <div className="container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {data!.map((companyData) => (
             <Card key={companyData.id} {...companyData} />
           ))}
