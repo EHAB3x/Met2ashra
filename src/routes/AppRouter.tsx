@@ -51,10 +51,6 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
-      },
-      {
-        path:":mentors",
-        element : <Mentors />
       }
     ],
   },
