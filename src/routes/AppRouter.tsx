@@ -13,7 +13,6 @@ import Profile from "@pages/Profile";
 import Error from "@pages/Error";
 import Contact from "@pages/Contact";
 import About from "@pages/About";
-import Mentors from "@pages/Mentors";
 // Router Functions
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AuthProvider } from "@context/AuthContext";
