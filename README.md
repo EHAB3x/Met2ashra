@@ -18,7 +18,18 @@
 3. *Preview The Project*:
     ```bash
     http://localhost:5173
-
+## Accounts
+- Admin
+  ```
+  phone `01012345678`
+  password `A2padf##fd##ssword`
+  ```
+- user
+  ```
+  phone `01014725836`
+  password `A2padf##fd##ssword`
+  ```
+  
 # Met2ashra Frontend
 
 This project is a frontend project built using React.js and TypeScript. Below is a summary of the libraries and technologies we used to handle authentication, navigation and enhance user experience in our project.We add calender to make it easy for user to track his progress.We create dashboard to make it easy for admins to manage the website.
