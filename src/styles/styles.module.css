@@ -1,0 +1,16 @@
+.section__background{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero___background{
+    background-image: url("src/assets/images/hero.png");
+}
+
+.about__background{
+    background-image: url("src/assets/images/different.png");
+}
+
+.sameHero__section{
+    background-image: url("src/assets/svg/companybg.svg");
+}
