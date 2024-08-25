@@ -1,3 +1,5 @@
+import styles from "@styles/styles.module.css"
+
 interface Iprops {
   text: string;
   title: string;
@@ -5,7 +7,7 @@ interface Iprops {
 }
 const Hero = ({ text, title, img }: Iprops) => {
   return (
-    <div className="bg-[url('src/assets/svg/companybg.svg')] bg-no-repeat bg-cover h-[700px] flex items-center justify-center sm:mt-0 mt-[88px]">
+    <div className={`${styles.sameHero__section} ${styles.section__background} h-[700px] flex items-center justify-center sm:mt-0 mt-[88px]`}>
       <div className="container flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16 h-full">
         <div className="sm:flex-1 flex-none text-left flex-col">
           <h2 className="font-semibold text-[28px] sm:text-[32px] text-black mb-1">

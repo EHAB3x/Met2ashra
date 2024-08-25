@@ -9,9 +9,10 @@ import {
 } from "@components/ui/select";
 import Search from "@assets/svg/search.svg?react";
 import HeroSection from "@assets/images/hero-section.png";
+import styles from "@styles/styles.module.css"
 const Hero = () => {
   return (
-    <div className="bg-[url('src/assets/images/hero.png')] bg-no-repeat bg-cover h-[1000px]">
+    <div className={`h-[1000px] ${styles.hero___background} ${styles.section__background}`}>
       <div className="container flex items-center justify-center sm:gap-16 gap-8 sm:flex-row flex-col-reverse h-[100%]">
         <div className="sm:flex-1 flex-none">
           <div className="flex flex-col gap-4 mb-6">

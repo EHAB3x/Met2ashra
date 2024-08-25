@@ -7,6 +7,8 @@ import Filter from "@assets/svg/filter.svg?react"
 import CV from "@assets/svg/cv.svg?react"
 import Course from "@assets/svg/courses.svg?react"
 import Resume from "@assets/svg/resume.svg?react"
+import styles from "@styles/styles.module.css"
+
 const About = () => {
   return (
     <div className="">
@@ -67,7 +69,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="bg-[url('src/assets/images/different.png')] bg-no-repeat bg-cover py-[5.5rem]">
+      <div className={`${styles.hero___background} ${styles.section__background} py-[5.5rem]`}>
         <div className="container mx-auto flex sm:flex-row flex-col-reverse sm:gap-8 gap-0">
             <div className="sm:flex-1 flex-0">
                 <Different className="w-full"/>
